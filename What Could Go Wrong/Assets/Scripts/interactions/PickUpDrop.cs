@@ -17,10 +17,16 @@ public class PickUpDrop : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0)) {
             if (grabbedObject == null) {
                 if (Physics.Raycast(cameraPos.position, cameraPos.forward, out RaycastHit raycastHit, maxDistance, layerMask)) {
-                    //Debug.Log(raycastHit.transform);
+                    Debug.Log(raycastHit.transform);
                     if (raycastHit.transform.TryGetComponent(out grabbedObject)) {
                         grabbedObject.Grab(grabPos);
                         //Debug.Log(objectGrabbable);
+                    } else if (raycastHit.transform.TryGetComponent(out FridgeControl fridgeControl)) {
+                        if (fridgeControl.isOpen()) {
+                            fridgeControl.Close();
+                        } else {
+                            fridgeControl.Open();
+                        }
                     }
                 }
             } else {
