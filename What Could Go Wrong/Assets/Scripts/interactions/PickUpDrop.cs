@@ -39,6 +39,7 @@ public class PickUpDrop : MonoBehaviour
             camera.canMove = false;
             float rotateX = Input.GetAxis("Mouse X") * rotationSensitivity;
             float rotateY = Input.GetAxis("Mouse Y") * rotationSensitivity;
+            grabbedObject.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
             grabbedObject.transform.Rotate(Vector3.down, rotateX);
             grabbedObject.transform.Rotate(Vector3.right, rotateY);
         } else {
