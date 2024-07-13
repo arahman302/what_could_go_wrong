@@ -12,7 +12,7 @@ public class CameraControls : MonoBehaviour
     public Transform orientation;
     float xRotation;
     float yRotation;
-
+    public bool canMove = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,17 +24,19 @@ public class CameraControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //mouse input
-        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
-        //update current rotation
-        yRotation += mouseX;
-        xRotation -= mouseY;
+        if (canMove) {
+            //mouse input
+            float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
+            float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
+            //update current rotation
+            yRotation += mouseX;
+            xRotation -= mouseY;
 
-        //prevent neck breaking
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+            //prevent neck breaking
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        orientation.rotation = Quaternion.Euler(0, yRotation,0);
+            transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+            orientation.rotation = Quaternion.Euler(0, yRotation,0);
+        }
     }
 }
