@@ -1048,8 +1048,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   atSink: 0
+  atStove: 0
   hasWater: 0
   waterTime: 3
+  cookTime: 15
+  currentItems: []
 --- !u!1 &736934062
 GameObject:
   m_ObjectHideFlags: 0
@@ -1799,6 +1802,32 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5511874076015040463, guid: 3c836d25692b27e4684b018ef4cf6b7a, type: 3}
   m_PrefabInstance: {fileID: 1695490744}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1291352432 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4482318377291135224, guid: 3c836d25692b27e4684b018ef4cf6b7a, type: 3}
+  m_PrefabInstance: {fileID: 1695490744}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1291352434
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291352432}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.7975091, y: 1.3794426, z: 0.8031322}
+  m_Center: {x: 0.032206744, y: 0.18972112, z: -0.0984377}
 --- !u!1 &1298464112 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1271865576400040978, guid: 6887084a4d02b064fbd55a21a809634f, type: 3}
@@ -2298,11 +2327,10 @@ MonoBehaviour:
   timePassed: 0
   timeRemaining: 90
   timerText: {fileID: 799133181}
-  deepPan: {fileID: 666343557}
+  pot: {fileID: 0}
   fryingPan: {fileID: 1243890786}
   cuttingBoard: {fileID: 1590762959}
   toaster: {fileID: 2048419509}
-  ingredients: []
 --- !u!1 &1581549960
 GameObject:
   m_ObjectHideFlags: 0
@@ -2684,6 +2712,10 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: 0.039738774
       objectReference: {fileID: 0}
+    - target: {fileID: 4482318377291135224, guid: 3c836d25692b27e4684b018ef4cf6b7a, type: 3}
+      propertyPath: m_Name
+      value: stove
+      objectReference: {fileID: 0}
     - target: {fileID: 6278116044115896461, guid: 3c836d25692b27e4684b018ef4cf6b7a, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -2874,6 +2906,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5588963783941469594, guid: 3c836d25692b27e4684b018ef4cf6b7a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 641273213}
+    - targetCorrespondingSourceObject: {fileID: 4482318377291135224, guid: 3c836d25692b27e4684b018ef4cf6b7a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1291352434}
   m_SourcePrefab: {fileID: 100100000, guid: 3c836d25692b27e4684b018ef4cf6b7a, type: 3}
 --- !u!1 &1779369833
 GameObject:
