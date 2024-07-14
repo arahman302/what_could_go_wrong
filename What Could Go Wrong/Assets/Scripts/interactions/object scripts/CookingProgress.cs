@@ -7,10 +7,25 @@ public class CookingProgress : MonoBehaviour {
     [SerializeField] private float timeRemaining = 90f;
     private bool timeIsRunning = true;
     [SerializeField] private TMP_Text timerText;
-    
+    [SerializeField] private GameObject deepPan;
+    [SerializeField] private GameObject fryingPan;
+    [SerializeField] private GameObject cuttingBoard;
+    [SerializeField] private GameObject toaster;
+    [SerializeField] public Food[] ingredients;
     void Start() {
         timeIsRunning = true;
         Time.timeScale = 1.0f;
+
+        //make foods
+        Food steak = new Food("steak", false, fryingPan);
+        Food fish = new Food("fish", true, deepPan);
+        Food bread = new Food("bread", false, toaster);
+        Food garlic = new Food("garlic", true, deepPan);
+        Food pepper = new Food("pepper", true, fryingPan);
+        Food lemon = new Food("lemon", true, deepPan);
+
+        ingredients = new [] {steak, fish, bread, garlic, pepper, lemon};
+
     }
 
     void Update() {
