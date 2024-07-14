@@ -27,6 +27,8 @@ public class PickUpDrop : MonoBehaviour
                         } else {
                             fridgeControl.Open();
                         }
+                    } else if (raycastHit.transform.TryGetComponent(out ToasterController toaster)) {
+                        toaster.giveBread();
                     }
                 }
             } else {

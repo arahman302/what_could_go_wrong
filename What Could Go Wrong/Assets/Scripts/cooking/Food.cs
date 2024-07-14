@@ -9,19 +9,27 @@ public class Food : MonoBehaviour
     [SerializeField] private bool needsChopping;
     [SerializeField] private bool isChopped;
     [SerializeField] private GameObject tool;
+    [SerializeField] private bool isServed;
     public Food(string id, bool chop, GameObject tool) {
         isCooked = -1;
         this.id = id;
         needsChopping = chop;
         isChopped = false;
         this.tool = tool;
+        isServed = false;
     }
 
+    public void serve() {
+        isServed = true;
+    }
+    public bool getServed() {
+        return isServed;
+    }
     public string getID() {
         return id;
     }
 
-    public void setCookingStatus(int status) {
+    public void setStatus(int status) {
         isCooked = status;
     }
 
@@ -33,6 +41,9 @@ public class Food : MonoBehaviour
         return tool;
     }
 
+    public bool getChopped() {
+        return (needsChopping ? isChopped : true);
+    }
     public void chop() {
         if (!needsChopping) {
             return;
